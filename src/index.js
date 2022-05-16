@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home.js';
 import { Dashboard } from './components/Dashboard.js';
 import { Login } from './components/Login.js';
@@ -8,7 +8,7 @@ import { NotImplemented } from './components/NotImplemented.js';
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<Dashboard />} />
@@ -19,7 +19,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<NotImplemented />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
