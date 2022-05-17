@@ -32,6 +32,7 @@ export default {
   },
   devServer: {
     port: 4200,
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin],
 };

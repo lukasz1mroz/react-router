@@ -5,20 +5,36 @@ import { Home } from './components/Home.js';
 import { Dashboard } from './components/Dashboard.js';
 import { Login } from './components/Login.js';
 import { NotImplemented } from './components/NotImplemented.js';
+import { AuthProvider, RequireAuth } from './utils/auth.js';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<Dashboard />} />
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route path=":itemId" element={<Dashboard />} />
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route
+              path="dashboard"
+              element={
+                <RequireAuth>
+                  <Dashboard />
+                </RequireAuth>
+              }
+            >
+              <Route
+                path=":itemId"
+                element={
+                  <RequireAuth>
+                    <Dashboard />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="login" element={<Login />} />
           </Route>
-          <Route path="login" element={<Login />} />
-        </Route>
-        <Route path="*" element={<NotImplemented />} />
-      </Routes>
+          <Route path="*" element={<NotImplemented />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 };
