@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../utils/auth.js';
+import { useAuth } from '../utils/auth';
 
 export const Login = () => {
   let navigate = useNavigate();
-  let location = useLocation();
+  let location = useLocation() as any;
   let auth = useAuth();
 
   let from = location.state?.from?.pathname || '/';

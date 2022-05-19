@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, Outlet, useLocation } from 'react-router-dom';
-import { AuthStatus } from '../utils/auth.js';
-import { useAuth } from '../utils/auth.js';
+import { AuthStatus } from '../utils/auth';
+import { useAuth } from '../utils/auth';
 
 export const Home = () => {
   let navigate = useNavigate();

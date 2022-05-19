@@ -9,14 +9,18 @@ const htmlPlugin = new HtmlWebPackPlugin({
 const __dirname = path.resolve();
 
 export default {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   mode: 'development',
   module: {
     rules: [
+      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         test: /\.js$/,
         exclude: /node_modules/,

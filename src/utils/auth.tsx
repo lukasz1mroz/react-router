@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-const RequireAuth = ({ children }) => {
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
   let auth = useAuth();
   let location = useLocation();
 
